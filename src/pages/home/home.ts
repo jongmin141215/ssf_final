@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -6,9 +7,17 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  private loginForm: FormGroup;
+  constructor(public navCtrl: NavController,
+              private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-  constructor(public navCtrl: NavController) {
-
+  login() {
+    console.log(this.loginForm.value)
   }
 
 }
