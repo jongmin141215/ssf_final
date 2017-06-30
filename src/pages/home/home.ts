@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
 import { RegisterPage } from '../register/register';
+import { TabsPage } from '../tabs/tabs';
 import { AppUsersProvider } from '../../providers/app-users/app-users'
 
 @Component({
@@ -32,6 +33,7 @@ export class HomePage {
           window.localStorage.setItem("userId", user.userId);
           window.localStorage.setItem("token", user.id);
           console.log('user', user);
+          this.navCtrl.push(TabsPage);
         }, err => {
           console.log('err', err);
         }
