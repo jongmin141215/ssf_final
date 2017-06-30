@@ -12,6 +12,9 @@ export class AppUsersProvider {
   path: string = "/AppUsers";
 
   register(newUserData) {
-    return this.http.post(this.baseUrl + this.path, newUserData).map(res => res.json())
+    return this.http.post(this.baseUrl + this.path, newUserData).map(res => res.json());
+  }
+  login(loginData) {
+    return this.http.post(this.baseUrl + this.path + '/login', loginData).map(res => res.json());
   }
 }
