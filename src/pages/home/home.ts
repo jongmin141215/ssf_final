@@ -20,6 +20,9 @@ export class HomePage {
 
   login() {
     console.log(this.loginForm.value)
+    if (!this.loginForm.valid) {
+      alert("Please enter a valid email and password");
+    }
   }
   toRegisterPage() {
     console.log('to register page')

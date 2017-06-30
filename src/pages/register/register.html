@@ -8,13 +8,23 @@
 <ion-content padding>
   <form [formGroup]="signupForm" (ngSubmit)="register()">
     <ion-item>
+      <ion-label>First Name</ion-label>
+      <ion-input type="text" placeholder="John"
+        formControlName="firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name</ion-label>
+      <ion-input type="text" placeholder="Smith"
+        formControlName="lastName"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>Email</ion-label>
       <ion-input type="email" placeholder="john@travel.com"
         formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Username</ion-label>
-      <ion-input type="text" placeholder="john"
+      <ion-input type="text" placeholder="jsmith"
         formControlName="username"></ion-input>
     </ion-item>
     <ion-item>
@@ -22,11 +32,7 @@
       <ion-input type="password" placeholder="********"
         formControlName="password"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Confirm Password</ion-label>
-      <ion-input type="password" placeholder="********"
-        formControlName="confirmation"></ion-input>
-    </ion-item>
+
     <button ion-button block
       [disabled]="!signupForm.valid">Register</button>
   </form>
