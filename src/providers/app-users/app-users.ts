@@ -17,4 +17,10 @@ export class AppUsersProvider {
   login(loginData) {
     return this.http.post(this.baseUrl + this.path + '/login', loginData).map(res => res.json());
   }
+  search(username, token) {
+    return this.http.get(this.baseUrl + this.path + "/findOne?filter=%7B%22where%22%3A%20%7B%22username%22%3A%20%22" + username + "%22%7D%7D&access_token=" + token).map(res => res.json());
+  }
+  addFriend(user, token) {
+    return this.http.patch(this.baseUrl + this.path + "/" + user.id + "?access_token=" + token, {"firstName": "test7"});
+  }
 }

@@ -20,7 +20,8 @@ export class RegisterPage {
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', Validators.required]    })
+      password: ['', Validators.required]
+    })
   }
 
   ionViewDidLoad() {
