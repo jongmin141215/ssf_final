@@ -30,7 +30,15 @@ export class TripsPage {
       )
   }
   ionViewWillEnter() {
-
+    this.tripsProvider.getTrips(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
+      .subscribe(
+        trips => {
+          console.log('trips', trips);
+          this.trips = trips;
+        }, err => {
+          console.log(err);
+        }
+      )
   }
   toNewTripPage() {
     this.navCtrl.push(NewTripPage);
