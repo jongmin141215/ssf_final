@@ -1,24 +1,42 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TripsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { NewTripPage } from '../new-trip/new-trip';
+import { TripPage } from '../trip/trip';
+import { TripsProvider } from '../../providers/trips/trips';
+
 @IonicPage()
 @Component({
   selector: 'page-trips',
   templateUrl: 'trips.html',
 })
 export class TripsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  trips: any;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private tripsProvider: TripsProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TripsPage');
+    this.tripsProvider.getTrips(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
+      .subscribe(
+        trips => {
+          console.log('trips', trips);
+          this.trips = trips;
+        }, err => {
+          console.log(err);
+        }
+      )
+  }
+  ionViewWillEnter() {
+
+  }
+  toNewTripPage() {
+    this.navCtrl.push(NewTripPage);
+  }
+  toTripPage(trip) {
+    this.navCtrl.push(TripPage, {trip: trip});
   }
 
 }

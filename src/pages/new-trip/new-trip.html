@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Trip</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="newTripForm" (ngSubmit)="createTrip()">
+    <ion-item>
+      <ion-label>Location</ion-label>
+      <ion-input type="text"
+        formControlName="location"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime
+        formControlName="date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Info</ion-label>
+      <ion-textarea
+        formControlName="info"></ion-textarea>
+    </ion-item>
+    <button ion-button>Create Trip</button>
+  </form>
+</ion-content>

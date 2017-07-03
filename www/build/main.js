@@ -45327,10 +45327,9 @@ var AppUsersProvider = (function () {
 }());
 AppUsersProvider = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
 ], AppUsersProvider);
 
-var _a;
 //# sourceMappingURL=app-users.js.map
 
 /***/ }),
@@ -56011,10 +56010,12 @@ RegisterPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-register',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/register/register.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="signupForm" (ngSubmit)="register()">\n    <ion-item>\n      <ion-label>First Name</ion-label>\n      <ion-input type="text" placeholder="John"\n        formControlName="firstName"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Last Name</ion-label>\n      <ion-input type="text" placeholder="Smith"\n        formControlName="lastName"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Email</ion-label>\n      <ion-input type="email" placeholder="john@travel.com"\n        formControlName="email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Username</ion-label>\n      <ion-input type="text" placeholder="jsmith"\n        formControlName="username"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input type="password" placeholder="********"\n        formControlName="password"></ion-input>\n    </ion-item>\n\n    <button ion-button block\n      [disabled]="!signupForm.valid">Register</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/register/register.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]])
 ], RegisterPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=register.js.map
 
 /***/ }),
@@ -56081,10 +56082,12 @@ SearchPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-search',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/search/search.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Search</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<h1>Search</h1>\n  <form [formGroup]="searchForm" (ngSubmit)="findFriend()">\n    <ion-item>\n      <ion-input\n        type="text"\n        placeholder="Search friends"\n        formControlName="searchTerm"></ion-input>\n\n    </ion-item>\n    <button ion-button>Search</button>\n  </form>\n  <p *ngIf="user">{{user.username}}<button ion-button (click)="addFriend(user)">Add</button></p>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/search/search.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]])
 ], SearchPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=search.js.map
 
 /***/ }),
@@ -56143,6 +56146,9 @@ TabsPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TripsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__new_trip_new_trip__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__trip_trip__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__ = __webpack_require__(276);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56154,28 +56160,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/**
- * Generated class for the TripsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
+
+
 var TripsPage = (function () {
-    function TripsPage(navCtrl, navParams) {
+    function TripsPage(navCtrl, navParams, tripsProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.tripsProvider = tripsProvider;
     }
     TripsPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
         console.log('ionViewDidLoad TripsPage');
+        this.tripsProvider.getTrips(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
+            .subscribe(function (trips) {
+            console.log('trips', trips);
+            _this.trips = trips;
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    TripsPage.prototype.ionViewWillEnter = function () {
+    };
+    TripsPage.prototype.toNewTripPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__new_trip_new_trip__["a" /* NewTripPage */]);
+    };
+    TripsPage.prototype.toTripPage = function (trip) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__trip_trip__["a" /* TripPage */], { trip: trip });
     };
     return TripsPage;
 }());
 TripsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-trips',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/'<!--\n  Generated template for the TripsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trips</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/,
+        selector: 'page-trips',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trips</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<button ion-button (click)="toNewTripPage()">Add Trip</button>\n<ion-card *ngFor="let trip of trips"\n  (click)="toTripPage(trip)">\n  <ion-card-header>Trip to {{trip.location}}\n  </ion-card-header>\n  <ion-card-content>\n    {{trip.location}}\n    {{trip.date | date: \'EEE MMM d, y\'}}\n  </ion-card-content>\n</ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]])
 ], TripsPage);
 
 //# sourceMappingURL=trips.js.map
@@ -76949,23 +76971,31 @@ module.exports = g;
 var map = {
 	"../pages/friends/friends.module": [
 		269,
-		4
+		13
+	],
+	"../pages/new-trip/new-trip.module": [
+		274,
+		12
 	],
 	"../pages/register/register.module": [
 		270,
-		3
+		4
 	],
 	"../pages/search/search.module": [
 		271,
-		2
+		3
 	],
 	"../pages/tabs/tabs.module": [
 		272,
-		1
+		2
+	],
+	"../pages/trip/trip.module": [
+		277,
+		0
 	],
 	"../pages/trips/trips.module": [
 		273,
-		0
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -77001,13 +77031,19 @@ webpackAsyncContext.id = 199;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_friends_friends__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_search_search__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_trips_trips__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_app_users_app_users__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_new_trip_new_trip__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_trip_trip__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_app_users_app_users__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_trips_trips__ = __webpack_require__(276);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -77036,7 +77072,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_9__pages_tabs_tabs__["a" /* TabsPage */],
             __WEBPACK_IMPORTED_MODULE_10__pages_friends_friends__["a" /* FriendsPage */],
             __WEBPACK_IMPORTED_MODULE_11__pages_search_search__["a" /* SearchPage */],
-            __WEBPACK_IMPORTED_MODULE_12__pages_trips_trips__["a" /* TripsPage */]
+            __WEBPACK_IMPORTED_MODULE_12__pages_trips_trips__["a" /* TripsPage */],
+            __WEBPACK_IMPORTED_MODULE_13__pages_new_trip_new_trip__["a" /* NewTripPage */],
+            __WEBPACK_IMPORTED_MODULE_14__pages_trip_trip__["a" /* TripPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -77046,7 +77084,9 @@ AppModule = __decorate([
                     { loadChildren: '../pages/friends/friends.module#FriendsPageModule', name: 'FriendsPage', segment: 'friends', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/search/search.module#SearchPageModule', name: 'SearchPage', segment: 'search', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/trips/trips.module#TripsPageModule', name: 'TripsPage', segment: 'trips', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/new-trip/new-trip.module#NewTripPageModule', name: 'NewTripPage', segment: 'new-trip', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/trip/trip.module#TripPageModule', name: 'TripPage', segment: 'trip', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* HttpModule */]
@@ -77059,13 +77099,16 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_9__pages_tabs_tabs__["a" /* TabsPage */],
             __WEBPACK_IMPORTED_MODULE_10__pages_friends_friends__["a" /* FriendsPage */],
             __WEBPACK_IMPORTED_MODULE_11__pages_search_search__["a" /* SearchPage */],
-            __WEBPACK_IMPORTED_MODULE_12__pages_trips_trips__["a" /* TripsPage */]
+            __WEBPACK_IMPORTED_MODULE_12__pages_trips_trips__["a" /* TripsPage */],
+            __WEBPACK_IMPORTED_MODULE_13__pages_new_trip_new_trip__["a" /* NewTripPage */],
+            __WEBPACK_IMPORTED_MODULE_14__pages_trip_trip__["a" /* TripPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicErrorHandler */] },
-            __WEBPACK_IMPORTED_MODULE_13__providers_app_users_app_users__["a" /* AppUsersProvider */]
+            __WEBPACK_IMPORTED_MODULE_15__providers_app_users_app_users__["a" /* AppUsersProvider */],
+            __WEBPACK_IMPORTED_MODULE_16__providers_trips_trips__["a" /* TripsProvider */]
         ]
     })
 ], AppModule);
@@ -114680,6 +114723,172 @@ function toSubscriber(nextOrObserver, error, complete) {
 }
 exports.toSubscriber = toSubscriber;
 //# sourceMappingURL=toSubscriber.js.map
+
+/***/ }),
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewTripPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__trips_trips__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__ = __webpack_require__(276);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NewTripPage = (function () {
+    function NewTripPage(navCtrl, navParams, formBuilder, tripsProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.formBuilder = formBuilder;
+        this.tripsProvider = tripsProvider;
+        this.newTripForm = this.formBuilder.group({
+            location: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required],
+            // travelers: [[]],
+            date: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required],
+            info: ['']
+        });
+    }
+    NewTripPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad NewTripPage');
+    };
+    NewTripPage.prototype.createTrip = function () {
+        var _this = this;
+        var tripDataWithUserId = this.newTripForm.value;
+        tripDataWithUserId["userId"] = window.localStorage.getItem("userId");
+        console.log(tripDataWithUserId);
+        this.tripsProvider.createTrip(tripDataWithUserId, window.localStorage.getItem("token"))
+            .subscribe(function (trip) {
+            console.log(trip);
+            _this.navCtrl.popTo(__WEBPACK_IMPORTED_MODULE_3__trips_trips__["a" /* TripsPage */]);
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    return NewTripPage;
+}());
+NewTripPage = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPage */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
+        selector: 'page-new-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>New Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="newTripForm" (ngSubmit)="createTrip()">\n    <ion-item>\n      <ion-label>Location</ion-label>\n      <ion-input type="text"\n        formControlName="location"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Date</ion-label>\n      <ion-datetime\n        formControlName="date"></ion-datetime>\n    </ion-item>\n    <ion-item>\n      <ion-label>Info</ion-label>\n      <ion-textarea\n        formControlName="info"></ion-textarea>\n    </ion-item>\n    <button ion-button>Create Trip</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]])
+], NewTripPage);
+
+//# sourceMappingURL=new-trip.js.map
+
+/***/ }),
+/* 276 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TripsProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TripsProvider = (function () {
+    function TripsProvider(http) {
+        this.http = http;
+        this.baseUrl = "http://localhost:3000/api";
+        this.path = "/Trips";
+        console.log('Hello TripsProvider Provider');
+    }
+    TripsProvider.prototype.createTrip = function (tripData, token) {
+        return this.http.post(this.baseUrl + this.path + "?access_token=" + token, tripData).map(function (res) { return res.json(); });
+    };
+    TripsProvider.prototype.getTrips = function (userId, token) {
+        return this.http.get(this.baseUrl + this.path + "?filter=%7B%22userId%22%3A%20%22" + userId + "%22%7D&access_token=" + token).map(function (res) { return res.json(); });
+    };
+    return TripsProvider;
+}());
+TripsProvider = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+], TripsProvider);
+
+//# sourceMappingURL=trips.js.map
+
+/***/ }),
+/* 277 */,
+/* 278 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TripPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TripPage = (function () {
+    function TripPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    TripPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TripPage');
+        console.log('data', this.navParams.data);
+        console.log('trip', this.navParams.get('trip'));
+        // this.trip = this.navParams.get('trip');
+    };
+    TripPage.prototype.ngOnInit = function () {
+        this.trip = this.navParams.get('trip');
+    };
+    return TripPage;
+}());
+TripPage = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
+        selector: 'page-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  {{trip.location}}\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/,
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
+], TripPage);
+
+var _a, _b;
+//# sourceMappingURL=trip.js.map
 
 /***/ })
 /******/ ]);
