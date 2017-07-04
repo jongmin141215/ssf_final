@@ -20,7 +20,12 @@ export class AppUsersProvider {
   search(username, token) {
     return this.http.get(this.baseUrl + this.path + "/findOne?filter=%7B%22where%22%3A%20%7B%22username%22%3A%20%22" + username + "%22%7D%7D&access_token=" + token).map(res => res.json());
   }
-  addFriend(user, token) {
-    return this.http.patch(this.baseUrl + this.path + "/" + user.id + "?access_token=" + token, {"firstName": "test7"});
+  addFriend(userId, friendId, token) {
+    console.log('provider app user add friend called')
+    console.log('userId', userId)
+    console.log('friendId', friendId)
+    console.log('token', token)
+    console.log('return value', this.http.patch(this.baseUrl + this.path + "/" + userId + "?access_token=" + token, {"firstName": friendId}));
+    return this.http.patch(this.baseUrl + this.path + "/" + userId + "?access_token=" + token, {"firstName": friendId})
   }
 }

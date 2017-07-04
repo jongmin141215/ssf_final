@@ -19,5 +19,5 @@
     </ion-item>
     <button ion-button>Search</button>
   </form>
-  <p *ngIf="user">{{user.username}}<button ion-button (click)="addFriend(user)">Add</button></p>
+  <p *ngIf="friend">{{friend.username}}<button ion-button (click)="addFriend(friend.id)">Add</button></p>
 </ion-content>

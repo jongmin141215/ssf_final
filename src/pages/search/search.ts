@@ -10,7 +10,7 @@ import { AppUsersProvider } from '../../providers/app-users/app-users';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  user: any;
+  friend: any;
   private searchForm: FormGroup;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -28,18 +28,18 @@ export class SearchPage {
     console.log(this.searchForm.value);
     this.appUsersProvider.search(this.searchForm.value.searchTerm, window.localStorage.getItem("token"))
       .subscribe(
-        user => {
-          console.log('search user', user);
+        friend => {
+          console.log('search user', friend);
           this.searchForm.reset();
-          this.user = user;
+          this.friend = friend;
         },
         err => {
           console.log(err);
         }
       )
   }
-  addFriend(user) {
-    this.appUsersProvider.addFriend(user, window.localStorage.getItem("token"))
+  addFriend(friendId) {
+    this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), friendId, window.localStorage.getItem("token"))
       .subscribe(
         res => {
           console.log('res', res);

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { TripsProvider } from '../../providers/trips/trips';
 import { TripsPage } from '../trips/trips';
+import { NewTripPage } from '../new-trip/new-trip';
 
 @IonicPage()
 @Component({
@@ -24,6 +25,9 @@ export class TripPage implements OnInit {
   }
   ngOnInit() {
     this.trip = this.navParams.get('trip');
+  }
+  toEditTripPage(trip) {
+    this.navCtrl.push(NewTripPage, {mode: 'Edit', trip: trip});
   }
   deleteTrip(tripId) {
     this.tripsProvider.deleteTrip(tripId, window.localStorage.getItem('token'))

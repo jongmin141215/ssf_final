@@ -12,5 +12,7 @@
   <p>{{trip.date}}</p>
   <p>{{trip.info}}</p>
   <button ion-button
+    (click)="toEditTripPage(trip)">Edit Trip</button>
+  <button ion-button
     (click)="deleteTrip(trip.id)">Delete Trip</button>
 </ion-content>
