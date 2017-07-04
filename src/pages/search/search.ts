@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AppUsersProvider } from '../../providers/app-users/app-users';
+import { FriendsPage } from '../friends/friends';
 
 @IonicPage()
 @Component({
@@ -42,7 +43,9 @@ export class SearchPage {
     this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), friendId, window.localStorage.getItem("token"))
       .subscribe(
         res => {
+          alert("Friend successfully added!")
           console.log('res', res);
+          this.navCtrl.setRoot(FriendsPage);
           alert(res);
         }, err => {
           console.log('err', err)

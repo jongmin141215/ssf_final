@@ -19,7 +19,11 @@
         "any"
       ]
     },
-    "date": {
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
       "type": "date",
       "required": true
     },

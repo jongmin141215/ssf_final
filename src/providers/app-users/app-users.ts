@@ -25,7 +25,7 @@ export class AppUsersProvider {
     console.log('userId', userId)
     console.log('friendId', friendId)
     console.log('token', token)
-    console.log('return value', this.http.patch(this.baseUrl + this.path + "/" + userId + "?access_token=" + token, {"firstName": friendId}));
-    return this.http.patch(this.baseUrl + this.path + "/" + userId + "?access_token=" + token, {"firstName": friendId})
+    console.log('return value', this.http.put(this.baseUrl + this.path + "/" + userId + "?access_token=" + token, {"firstName": friendId}));
+    return this.http.patch(this.baseUrl + this.path + "/" + userId + "?access_token=" + token, {"firstName": friendId}).map(res => res.json());
   }
 }

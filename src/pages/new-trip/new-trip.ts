@@ -13,6 +13,18 @@ import { TripsProvider } from '../../providers/trips/trips';
 export class NewTripPage {
   mode: string = 'New';
   trip: any;
+  currentDate = new Date();
+  year = this.currentDate.getFullYear();
+  month = this.currentDate.getMonth() + 1;
+  date = this.currentDate.getDate();
+  minDate = this.year + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
+  maxDate = this.year + 1 + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
+  addZero(date) {
+    if (date < 10) {
+      return "0" + date
+    }
+    return date;
+  }
   newTripForm: FormGroup;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -21,7 +33,8 @@ export class NewTripPage {
     this.newTripForm = this.formBuilder.group({
       location: ['', Validators.required],
       // travelers: [[]],
-      date: ['', Validators.required],
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
       info: ['']
     })
   }
@@ -36,7 +49,8 @@ export class NewTripPage {
       this.newTripForm = this.formBuilder.group({
         location: [this.trip.location, Validators.required],
         // travelers: [[]],
-        date: [this.trip.date, Validators.required],
+        startDate: [this.trip.startDate, Validators.required],
+        endDate: [this.trip.endDate, Validators.required],
         info: [this.trip.info]
       })
     }

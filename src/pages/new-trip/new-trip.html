@@ -8,6 +8,7 @@
 
 
 <ion-content padding>
+
   <form [formGroup]="newTripForm" (ngSubmit)="createTrip()">
     <ion-item>
       <ion-label>Location</ion-label>
@@ -16,9 +17,16 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Date</ion-label>
-      <ion-datetime
-        formControlName="date"></ion-datetime>
+      <ion-label>Start date</ion-label>
+      <ion-input type="date"
+        [min]="minDate"
+        formControlName="startDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>End date</ion-label>
+      <ion-input type="date"
+        [max]="maxDate"
+        formControlName="endDate"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Info</ion-label>
@@ -26,5 +34,6 @@
         formControlName="info"></ion-textarea>
     </ion-item>
     <button ion-button>{{mode}} Trip</button>
+    {{minDate}}
   </form>
 </ion-content>
