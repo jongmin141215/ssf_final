@@ -8,5 +8,9 @@
 
 
 <ion-content padding>
-  {{trip.location}}
+  <h3>{{trip.location}}</h3>
+  <p>{{trip.date}}</p>
+  <p>{{trip.info}}</p>
+  <button ion-button
+    (click)="deleteTrip(trip.id)">Delete Trip</button>
 </ion-content>

@@ -17,5 +17,8 @@ export class TripsProvider {
   getTrips(userId, token) {
     return this.http.get(this.baseUrl + this.path + "?filter=%7B%22userId%22%3A%20%22" + userId + "%22%7D&access_token=" + token).map(res => res.json());
   }
+  deleteTrip(tripId, token) {
+    return this.http.delete(this.baseUrl + this.path + '/' + tripId + "?access_token=" + token).map(res => res.json());
+  }
 
 }

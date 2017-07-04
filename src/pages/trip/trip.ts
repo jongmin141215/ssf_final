@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { TripsProvider } from '../../providers/trips/trips';
+import { TripsPage } from '../trips/trips';
+
 @IonicPage()
 @Component({
   selector: 'page-trip',
@@ -9,7 +12,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class TripPage implements OnInit {
   trip: any;
   constructor(public navCtrl: NavController,
-              public navParams: NavParams) {
+              public navParams: NavParams,
+              private tripsProvider: TripsProvider) {
   }
 
   ionViewDidLoad() {
@@ -20,7 +24,18 @@ export class TripPage implements OnInit {
   }
   ngOnInit() {
     this.trip = this.navParams.get('trip');
-
+  }
+  deleteTrip(tripId) {
+    this.tripsProvider.deleteTrip(tripId, window.localStorage.getItem('token'))
+      .subscribe(
+        res => {
+          console.log('deleted?')
+          console.log(res);
+          this.navCtrl.popTo(TripsPage);
+        }, err => {
+          console.log(err);
+        }
+      )
   }
 
 }
