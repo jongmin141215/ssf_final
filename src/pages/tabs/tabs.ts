@@ -5,6 +5,8 @@ import { FriendsPage } from '../friends/friends';
 import { SearchPage } from '../search/search';
 import { TripsPage } from '../trips/trips';
 
+import { AppUsersProvider } from '../../providers/app-users/app-users';
+
 @IonicPage()
 @Component({
   selector: 'page-tabs',
@@ -18,11 +20,23 @@ export class TabsPage {
     userId: window.localStorage.getItem("userId"),
     mode: "Me"
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  currentUser: any;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private appUsersProvider: AppUsersProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabsPage');
+    this.appUsersProvider.getUser(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
+      .subscribe(
+        user => {
+          this.currentUser = user
+          console.log("CURENT USER", this.currentUser)
+        }, err => {
+          console.log(err);
+        }
+      )
   }
 
 }

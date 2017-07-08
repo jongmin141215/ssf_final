@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Subscription} from "rxjs/Rx";
 
 import { AppUsersProvider } from '../../providers/app-users/app-users';
 import { TripsPage } from '../trips/trips';
@@ -11,7 +10,6 @@ import { TripsPage } from '../trips/trips';
   templateUrl: 'friends.html',
 })
 export class FriendsPage {
-  subscription: Subscription;
   friends: any = [];
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -33,12 +31,12 @@ export class FriendsPage {
   }
 
   fetchFriends() {
-    this.subscription = this.appUsersProvider.fetchFriends(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
+    this.appUsersProvider.fetchFriends(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
       .subscribe(
         res => {
           console.log('friends', res);
           this.friends = res.friends
-          console.log(this.friends[0].firstName)
+          // console.log(this.friends[0].firstName)
         }, err => {
           console.log('err', err);
         }

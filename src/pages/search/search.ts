@@ -12,7 +12,9 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'search.html',
 })
 export class SearchPage {
+  currentUser: any;
   friend: any;
+  friends: any = [];
   private searchForm: FormGroup;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -26,6 +28,12 @@ export class SearchPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
   }
+  ionViewWillEnter() {
+    if (this.navParams.get("friends")) {
+      this.friends = this.navParams.get("friends");
+    }
+  }
+
   findFriend() {
     console.log(this.searchForm.value);
     this.appUsersProvider.search(this.searchForm.value.searchTerm, window.localStorage.getItem("token"))
@@ -41,7 +49,8 @@ export class SearchPage {
       )
   }
   addFriend(friend) {
-    this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), friend, window.localStorage.getItem("token"))
+    this.friends.push(friend);
+    this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), this.friends, window.localStorage.getItem("token"))
       .subscribe(
         res => {
           alert("Friend successfully added!")
@@ -51,11 +60,6 @@ export class SearchPage {
           console.log('err', err)
         }
       )
-    // figure out why response is not being returned
-    // this.navCtrl.parent.select(0)
-
-
-
   }
 
 

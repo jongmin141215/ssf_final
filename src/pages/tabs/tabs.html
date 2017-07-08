@@ -1,6 +1,6 @@
 
 <ion-tabs>
   <ion-tab [root]="friendsPage" tabTitle="Friends" tabIcon="people"></ion-tab>
-  <ion-tab [root]="searchPage" tabTitle="Search" tabIcon="search"></ion-tab>
+  <ion-tab [root]="searchPage" tabTitle="Search" tabIcon="search" [rootParams]="currentUser"></ion-tab>
   <ion-tab [root]="tripsPage" tabTitle="Trips" tabIcon="plane" [rootParams]="tripsParams"></ion-tab>
 </ion-tabs>

@@ -16,7 +16,6 @@ import { NewTripPage } from '../pages/new-trip/new-trip';
 import { TripPage } from '../pages/trip/trip';
 import { AppUsersProvider } from '../providers/app-users/app-users';
 import { TripsProvider } from '../providers/trips/trips';
-import { FriendTripsPage } from '../pages/friend-trips/friend-trips';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { FriendTripsPage } from '../pages/friend-trips/friend-trips';
     SearchPage,
     TripsPage,
     NewTripPage,
-    TripPage,
-    FriendTripsPage
+    TripPage
   ],
   imports: [
     BrowserModule,
@@ -46,8 +44,7 @@ import { FriendTripsPage } from '../pages/friend-trips/friend-trips';
     SearchPage,
     TripsPage,
     NewTripPage,
-    TripPage,
-    FriendTripsPage
+    TripPage
   ],
   providers: [
     StatusBar,
