@@ -16,7 +16,7 @@
   <ion-card-header>Trip to {{trip.location}}
   </ion-card-header>
   <ion-card-content>
-    {{trip.startDate | date: 'EEE MMM d, y'}}-{{trip.endDate | date: 'EEE MMM d, y'}}
+    {{convertDate(trip.startDate) | date: 'EEE MMM d, y'}}-{{convertDate(trip.endDate) | date: 'EEE MMM d, y'}}
   </ion-card-content>
 </ion-card>
 </ion-content>

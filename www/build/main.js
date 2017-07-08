@@ -36164,18 +36164,21 @@ var TripsPage = (function () {
     TripsPage.prototype.toTripPage = function (trip) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__trip_trip__["a" /* TripPage */], { trip: trip });
     };
+    TripsPage.prototype.convertDate = function (date) {
+        var d = new Date(date);
+        return new Date(d.setMinutes(d.getMinutes() + d.getTimezoneOffset()));
+    };
     return TripsPage;
 }());
 TripsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-trips',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trips</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<button ion-button\n  *ngIf="mode ===\'Me\'"\n  (click)="toNewTripPage()">Add Trip</button>\n<ion-card *ngFor="let trip of trips"\n  (click)="toTripPage(trip)">\n  <ion-card-header>Trip to {{trip.location}}\n  </ion-card-header>\n  <ion-card-content>\n    {{trip.startDate | date: \'EEE MMM d, y\'}}-{{trip.endDate | date: \'EEE MMM d, y\'}}\n  </ion-card-content>\n</ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/,
+        selector: 'page-trips',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trips</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<button ion-button\n  *ngIf="mode ===\'Me\'"\n  (click)="toNewTripPage()">Add Trip</button>\n<ion-card *ngFor="let trip of trips"\n  (click)="toTripPage(trip)">\n  <ion-card-header>Trip to {{trip.location}}\n  </ion-card-header>\n  <ion-card-content>\n    {{convertDate(trip.startDate) | date: \'EEE MMM d, y\'}}-{{convertDate(trip.endDate) | date: \'EEE MMM d, y\'}}\n  </ion-card-content>\n</ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]) === "function" && _c || Object])
 ], TripsPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=trips.js.map
 
 /***/ }),
@@ -58734,18 +58737,21 @@ var TripPage = (function () {
             console.log(err);
         });
     };
+    TripPage.prototype.convertDate = function (date) {
+        var d = new Date(date);
+        return new Date(d.setMinutes(d.getMinutes() + d.getTimezoneOffset()));
+    };
     return TripPage;
 }());
 TripPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <h3>Trip to {{trip.location}}!</h3>\n  <p>{{trip.startDate | date: \'EEE MMM d, y\'}}-{{trip.endDate | date: \'EEE MMM d, y\'}}</p>\n  <p>{{trip.info}}</p>\n  <button ion-button\n    (click)="toEditTripPage(trip)">Edit Trip</button>\n  <button ion-button\n    (click)="deleteTrip(trip.id)">Delete Trip</button>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/,
+        selector: 'page-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <h3>Trip to {{trip.location}}!</h3>\n  <p>{{convertDate(trip.startDate) | date: \'EEE MMM d, y\'}}-{{convertDate(trip.endDate) | date: \'EEE MMM d, y\'}}</p>\n  <p>{{trip.info}}</p>\n  <button ion-button\n    (click)="toEditTripPage(trip)">Edit Trip</button>\n  <button ion-button\n    (click)="deleteTrip(trip.id)">Delete Trip</button>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_trips_trips__["a" /* TripsProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_trips_trips__["a" /* TripsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_trips_trips__["a" /* TripsProvider */]) === "function" && _c || Object])
 ], TripPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=trip.js.map
 
 /***/ }),

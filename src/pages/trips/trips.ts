@@ -61,5 +61,9 @@ export class TripsPage {
   toTripPage(trip) {
     this.navCtrl.push(TripPage, {trip: trip});
   }
+  convertDate(date) {
+    let d = new Date(date);
+    return new Date(d.setMinutes(d.getMinutes() + d.getTimezoneOffset()));
+  }
 
 }

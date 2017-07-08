@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <h3>Trip to {{trip.location}}!</h3>
-  <p>{{trip.startDate | date: 'EEE MMM d, y'}}-{{trip.endDate | date: 'EEE MMM d, y'}}</p>
+  <p>{{convertDate(trip.startDate) | date: 'EEE MMM d, y'}}-{{convertDate(trip.endDate) | date: 'EEE MMM d, y'}}</p>
   <p>{{trip.info}}</p>
   <button ion-button
     (click)="toEditTripPage(trip)">Edit Trip</button>

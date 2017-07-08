@@ -41,5 +41,9 @@ export class TripPage implements OnInit {
         }
       )
   }
+  convertDate(date) {
+    let d = new Date(date);
+    return new Date(d.setMinutes(d.getMinutes() + d.getTimezoneOffset()));
+  }
 
 }
