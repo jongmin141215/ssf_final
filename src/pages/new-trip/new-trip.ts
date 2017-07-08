@@ -17,8 +17,9 @@ export class NewTripPage {
   year = this.currentDate.getFullYear();
   month = this.currentDate.getMonth() + 1;
   date = this.currentDate.getDate();
-  minDate = this.year + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
-  maxDate = this.year + 1 + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
+  minStartDate = this.year + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
+  minEndDate: any;
+  maxEndDate = this.year + 1 + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
   addZero(date) {
     if (date < 10) {
       return "0" + date

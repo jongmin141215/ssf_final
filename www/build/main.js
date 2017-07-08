@@ -36175,10 +36175,11 @@ TripsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-trips',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trips</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<button ion-button\n  *ngIf="mode ===\'Me\'"\n  (click)="toNewTripPage()">Add Trip</button>\n<ion-card *ngFor="let trip of trips"\n  (click)="toTripPage(trip)">\n  <ion-card-header>Trip to {{trip.location}}\n  </ion-card-header>\n  <ion-card-content>\n    {{convertDate(trip.startDate) | date: \'EEE MMM d, y\'}}-{{convertDate(trip.endDate) | date: \'EEE MMM d, y\'}}\n  </ion-card-content>\n</ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trips/trips.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]])
 ], TripsPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=trips.js.map
 
 /***/ }),
@@ -36236,10 +36237,9 @@ var AppUsersProvider = (function () {
 }());
 AppUsersProvider = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
 ], AppUsersProvider);
 
-var _a;
 //# sourceMappingURL=app-users.js.map
 
 /***/ }),
@@ -45517,8 +45517,8 @@ var NewTripPage = (function () {
         this.year = this.currentDate.getFullYear();
         this.month = this.currentDate.getMonth() + 1;
         this.date = this.currentDate.getDate();
-        this.minDate = this.year + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
-        this.maxDate = this.year + 1 + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
+        this.minStartDate = this.year + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
+        this.maxEndDate = this.year + 1 + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
         this.newTripForm = this.formBuilder.group({
             location: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* Validators */].required],
             // travelers: [[]],
@@ -45579,14 +45579,12 @@ var NewTripPage = (function () {
 NewTripPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-new-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>New Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <form [formGroup]="newTripForm" (ngSubmit)="createTrip()">\n    <ion-item>\n      <ion-label>Location</ion-label>\n      <ion-input type="text"\n        formControlName="location"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Start date</ion-label>\n      <ion-input type="date"\n        [min]="minDate"\n        formControlName="startDate"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>End date</ion-label>\n      <ion-input type="date"\n        [max]="maxDate"\n        formControlName="endDate"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Info</ion-label>\n      <ion-textarea\n        formControlName="info"></ion-textarea>\n    </ion-item>\n    <button ion-button>{{mode}} Trip</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/,
+        selector: 'page-new-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>New Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <form [formGroup]="newTripForm" (ngSubmit)="createTrip()">\n    <ion-item>\n      <ion-label>Location</ion-label>\n      <ion-input type="text"\n        formControlName="location"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Start date</ion-label>\n      <ion-input type="date"\n        [min]="minStartDate"\n        formControlName="startDate"\n        [(ngModel)]="minEndDate"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>End date</ion-label>\n      <ion-input type="date"\n        [min]="minEndDate"\n        [max]="maxEndDate"\n        formControlName="endDate"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Info</ion-label>\n      <ion-textarea\n        formControlName="info"></ion-textarea>\n    </ion-item>\n    <button ion-button>{{mode}} Trip</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]) === "function" && _d || Object])
 ], NewTripPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=new-trip.js.map
 
 /***/ }),
@@ -58469,10 +58467,11 @@ FriendsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-friends',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/friends/friends.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Friends</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list >\n    <ion-item *ngFor="let friend of friends">\n      <p *ngIf="friend" (click)="toFriendsTripsPage(friend.id)">{{friend.username}}</p>\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/friends/friends.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_app_users_app_users__["a" /* AppUsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_app_users_app_users__["a" /* AppUsersProvider */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_app_users_app_users__["a" /* AppUsersProvider */]])
 ], FriendsPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=friends.js.map
 
 /***/ }),
@@ -58613,10 +58612,12 @@ SearchPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-search',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/search/search.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Search</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<h1>Search</h1>\n  <form [formGroup]="searchForm" (ngSubmit)="findFriend()">\n    <ion-item>\n      <ion-input\n        type="text"\n        placeholder="Search friends"\n        formControlName="searchTerm"></ion-input>\n\n    </ion-item>\n    <button ion-button>Search</button>\n  </form>\n\n  <p *ngIf="friend">{{friend.username}}<button ion-button (click)="addFriend(friend)">Add</button></p>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/search/search.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]])
 ], SearchPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=search.js.map
 
 /***/ }),
@@ -58677,10 +58678,11 @@ TabsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-tabs',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/tabs/tabs.html"*/'\n<ion-tabs>\n  <ion-tab [root]="friendsPage" tabTitle="Friends" tabIcon="people"></ion-tab>\n  <ion-tab [root]="searchPage" tabTitle="Search" tabIcon="search" [rootParams]="currentUser"></ion-tab>\n  <ion-tab [root]="tripsPage" tabTitle="Trips" tabIcon="plane" [rootParams]="tripsParams"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/tabs/tabs.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__providers_app_users_app_users__["a" /* AppUsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_app_users_app_users__["a" /* AppUsersProvider */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_app_users_app_users__["a" /* AppUsersProvider */]])
 ], TabsPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=tabs.js.map
 
 /***/ }),
@@ -58748,10 +58750,11 @@ TripPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <h3>Trip to {{trip.location}}!</h3>\n  <p>{{convertDate(trip.startDate) | date: \'EEE MMM d, y\'}}-{{convertDate(trip.endDate) | date: \'EEE MMM d, y\'}}</p>\n  <p>{{trip.info}}</p>\n  <button ion-button\n    (click)="toEditTripPage(trip)">Edit Trip</button>\n  <button ion-button\n    (click)="deleteTrip(trip.id)">Delete Trip</button>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/trip/trip.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_trips_trips__["a" /* TripsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_trips_trips__["a" /* TripsProvider */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_trips_trips__["a" /* TripsProvider */]])
 ], TripPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=trip.js.map
 
 /***/ }),

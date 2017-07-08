@@ -19,13 +19,15 @@
     <ion-item>
       <ion-label>Start date</ion-label>
       <ion-input type="date"
-        [min]="minDate"
-        formControlName="startDate"></ion-input>
+        [min]="minStartDate"
+        formControlName="startDate"
+        [(ngModel)]="minEndDate"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>End date</ion-label>
       <ion-input type="date"
-        [max]="maxDate"
+        [min]="minEndDate"
+        [max]="maxEndDate"
         formControlName="endDate"></ion-input>
     </ion-item>
     <ion-item>
