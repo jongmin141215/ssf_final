@@ -14,6 +14,10 @@ export class TabsPage {
   friendsPage: any = FriendsPage;
   searchPage: any = SearchPage;
   tripsPage: any = TripsPage;
+  tripsParams = {
+    userId: window.localStorage.getItem("userId"),
+    mode: "Me"
+  }
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

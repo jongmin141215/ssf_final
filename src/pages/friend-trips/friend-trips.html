@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>FriendTrips</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let trip of friendTrips"
+    (click)="toFriendTripPage(trip)">
+    <ion-card-header>Trip to {{trip.location}}
+    </ion-card-header>
+    <ion-card-content>
+      {{trip.startDate | date: 'EEE MMM d, y'}}-{{trip.endDate | date: 'EEE MMM d, y'}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AppUsersProvider } from '../../providers/app-users/app-users';
 import { FriendsPage } from '../friends/friends';
+import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -39,18 +40,22 @@ export class SearchPage {
         }
       )
   }
-  addFriend(friendId) {
-    this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), friendId, window.localStorage.getItem("token"))
+  addFriend(friend) {
+    this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), friend, window.localStorage.getItem("token"))
       .subscribe(
         res => {
           alert("Friend successfully added!")
           console.log('res', res);
-          this.navCtrl.setRoot(FriendsPage);
           alert(res);
         }, err => {
           console.log('err', err)
         }
       )
+    // figure out why response is not being returned
+    // this.navCtrl.parent.select(0)
+
+
+
   }
 
 

@@ -1,17 +1,6 @@
-<!-- <ion-header>
 
-  <ion-navbar>
-    <ion-title>Tabs</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content> -->
 <ion-tabs>
   <ion-tab [root]="friendsPage" tabTitle="Friends" tabIcon="people"></ion-tab>
   <ion-tab [root]="searchPage" tabTitle="Search" tabIcon="search"></ion-tab>
-  <ion-tab [root]="tripsPage" tabTitle="Trips" tabIcon="plane"></ion-tab>
+  <ion-tab [root]="tripsPage" tabTitle="Trips" tabIcon="plane" [rootParams]="tripsParams"></ion-tab>
 </ion-tabs>

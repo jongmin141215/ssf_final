@@ -8,7 +8,9 @@
 
 
 <ion-content padding>
-<button ion-button (click)="toNewTripPage()">Add Trip</button>
+<button ion-button
+  *ngIf="mode ==='Me'"
+  (click)="toNewTripPage()">Add Trip</button>
 <ion-card *ngFor="let trip of trips"
   (click)="toTripPage(trip)">
   <ion-card-header>Trip to {{trip.location}}

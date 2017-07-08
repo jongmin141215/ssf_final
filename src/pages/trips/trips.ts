@@ -12,6 +12,7 @@ import { TripsProvider } from '../../providers/trips/trips';
 })
 export class TripsPage {
   trips: any;
+  mode: string = "Me";
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private tripsProvider: TripsProvider) {
@@ -30,15 +31,29 @@ export class TripsPage {
       )
   }
   ionViewWillEnter() {
-    this.tripsProvider.getTrips(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
-      .subscribe(
-        trips => {
-          console.log('trips', trips);
-          this.trips = trips;
-        }, err => {
-          console.log(err);
-        }
-      )
+    this.mode = this.navParams.get("mode");
+    if (this.mode === "Me") {
+      this.tripsProvider.getTrips(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
+        .subscribe(
+          trips => {
+            console.log('my trips', trips);
+            this.trips = trips;
+          }, err => {
+            console.log(err);
+          }
+        )
+    } else if (this.mode === "Friend") {
+      this.tripsProvider.getTrips(this.navParams.get("friendId"), window.localStorage.getItem("token"))
+        .subscribe(
+          trips => {
+            console.log('friend trips', trips);
+            this.trips = trips;
+          }, err => {
+            console.log(err);
+          }
+        )
+    }
+
   }
   toNewTripPage() {
     this.navCtrl.push(NewTripPage);

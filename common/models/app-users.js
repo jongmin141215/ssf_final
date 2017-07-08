@@ -9,10 +9,10 @@ module.exports = function(Appusers) {
           instance["token"] = response.id;
           console.log('response', response);
           next();
-        } else {
-          next();
         }
       })
+    } else {
+      next();
     }
   })
 };
