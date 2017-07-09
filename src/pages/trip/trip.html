@@ -11,8 +11,10 @@
   <h3>Trip to {{trip.location}}!</h3>
   <p>{{convertDate(trip.startDate) | date: 'EEE MMM d, y'}}-{{convertDate(trip.endDate) | date: 'EEE MMM d, y'}}</p>
   <p>{{trip.info}}</p>
-  <button ion-button
-    (click)="toEditTripPage(trip)">Edit Trip</button>
-  <button ion-button
-    (click)="deleteTrip(trip.id)">Delete Trip</button>
+  <div *ngIf="userId === trip.userId">
+    <button ion-button
+      (click)="toEditTripPage(trip)">Edit Trip</button>
+    <button ion-button
+      (click)="deleteTrip(trip.id)">Delete Trip</button>
+  </div>
 </ion-content>

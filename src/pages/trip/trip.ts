@@ -11,6 +11,7 @@ import { NewTripPage } from '../new-trip/new-trip';
   templateUrl: 'trip.html',
 })
 export class TripPage implements OnInit {
+  userId: string;
   trip: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -22,6 +23,9 @@ export class TripPage implements OnInit {
     console.log('data', this.navParams.data)
     console.log('trip', this.navParams.get('trip'))
     // this.trip = this.navParams.get('trip');
+  }
+  ionViewWillEnter() {
+    this.userId = window.localStorage.getItem('userId');
   }
   ngOnInit() {
     this.trip = this.navParams.get('trip');
