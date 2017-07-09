@@ -25199,6 +25199,17 @@ ion-navbar.toolbar {
   }
 }
 
+page-friends span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+page-friends ion-icon {
+  margin-right: 10px;
+  vertical-align: sub;
+  font-size: 30px;
+}
+
 page-home ion-content {
   background-image: url("https://c1.staticflickr.com/9/8724/16958016391_5e07aff6bd_b.jpg");
 }
