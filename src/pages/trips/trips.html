@@ -1,7 +1,10 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Trips</ion-title>
+    <ion-buttons>
+
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -9,8 +12,9 @@
 
 <ion-content padding>
 <button ion-button
+  id="addButton"
   *ngIf="mode ==='Me'"
-  (click)="toNewTripPage()">Add Trip</button>
+  (click)="toNewTripPage()"><ion-icon name="add"></ion-icon></button>
 <ion-card *ngFor="let trip of trips"
   (click)="toTripPage(trip)">
   <ion-card-header>Trip to {{trip.location}}

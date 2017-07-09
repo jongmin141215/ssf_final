@@ -1,24 +1,19 @@
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Search</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-<h1>Search</h1>
   <form [formGroup]="searchForm" (ngSubmit)="findFriend()">
-    <ion-item>
-      <ion-input
-        type="text"
-        placeholder="Search friends"
-        formControlName="searchTerm"></ion-input>
-
-    </ion-item>
-    <button ion-button>Search</button>
+    <ion-searchbar placeholder="Search friends"
+      formControlName="searchTerm"></ion-searchbar>
+    <button ion-button [disabled]="searchForm.invalid" text-center block>Search</button>
   </form>
 
-  <p *ngIf="friend">{{friend.username}}<button ion-button (click)="addFriend(friend)">Add</button></p>
+  <div *ngIf="friend">
+    <button  ion-button (click)="addFriend(friend)" outline block>
+      Add {{friend.username}}
+    </button>
+  </div>
 </ion-content>

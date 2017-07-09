@@ -56,7 +56,7 @@ export class TripsPage {
 
   }
   toNewTripPage() {
-    this.navCtrl.push(NewTripPage);
+    this.navCtrl.push(NewTripPage, {form: "New"});
   }
   toTripPage(trip) {
     this.navCtrl.push(TripPage, {trip: trip});

@@ -1,7 +1,7 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>New Trip</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>{{form}} Trip</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -35,6 +35,6 @@
       <ion-textarea
         formControlName="info"></ion-textarea>
     </ion-item>
-    <button ion-button>{{mode}} Trip</button>
+    <button ion-button block [disabled]="newTripForm.invalid">{{form}} Trip</button>
   </form>
 </ion-content>

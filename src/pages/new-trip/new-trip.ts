@@ -11,7 +11,7 @@ import { TripsProvider } from '../../providers/trips/trips';
   templateUrl: 'new-trip.html',
 })
 export class NewTripPage {
-  mode: string = 'New';
+  form: string = 'New';
   trip: any;
   currentDate = new Date();
   year = this.currentDate.getFullYear();
@@ -33,7 +33,6 @@ export class NewTripPage {
               private tripsProvider: TripsProvider) {
     this.newTripForm = this.formBuilder.group({
       location: ['', Validators.required],
-      // travelers: [[]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
       info: ['']
@@ -45,13 +44,13 @@ export class NewTripPage {
   }
   ionViewWillEnter() {
     this.trip = this.navParams.get('trip');
-    this.mode = this.navParams.get('mode')
-    if (this.mode === 'Edit') {
+    this.form = this.navParams.get('form')
+    console.log("THIS TRIP!!!", this.trip);
+    if (this.form === 'Edit') {
       this.newTripForm = this.formBuilder.group({
         location: [this.trip.location, Validators.required],
-        // travelers: [[]],
-        startDate: [this.trip.startDate, Validators.required],
-        endDate: [this.trip.endDate, Validators.required],
+        startDate: [this.trip.startDate.substring(0, 10), Validators.required],
+        endDate: [this.trip.endDate.substring(0, 10), Validators.required],
         info: [this.trip.info]
       })
     }
@@ -60,7 +59,7 @@ export class NewTripPage {
     let tripDataWithUserId: any = this.newTripForm.value;
     tripDataWithUserId["userId"] = window.localStorage.getItem("userId");
     console.log(tripDataWithUserId);
-    if (this.mode === 'Edit') {
+    if (this.form === 'Edit') {
       tripDataWithUserId["tripId"] = this.trip.id
       this.tripsProvider.updateTrip(tripDataWithUserId, window.localStorage.getItem("token"))
       .subscribe(
@@ -76,13 +75,12 @@ export class NewTripPage {
         .subscribe(
           trip => {
             console.log('new trip', trip);
-            this.navCtrl.setRoot(TripsPage);
+            this.navCtrl.setRoot(TripsPage, { mode: "Me"});
           }, err => {
             console.log(err);
           }
         )
     }
-
   }
 
 }

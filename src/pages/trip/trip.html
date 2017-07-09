@@ -1,20 +1,23 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Trip</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-  <h3>Trip to {{trip.location}}!</h3>
-  <p>{{convertDate(trip.startDate) | date: 'EEE MMM d, y'}}-{{convertDate(trip.endDate) | date: 'EEE MMM d, y'}}</p>
-  <p>{{trip.info}}</p>
-  <div *ngIf="userId === trip.userId">
-    <button ion-button
-      (click)="toEditTripPage(trip)">Edit Trip</button>
-    <button ion-button
-      (click)="deleteTrip(trip.id)">Delete Trip</button>
-  </div>
+  <h3 text-center>Trip to {{trip.location}}!</h3>
+  <p>Date: {{convertDate(trip.startDate) | date: 'EEE MMM d, y'}}-{{convertDate(trip.endDate) | date: 'EEE MMM d, y'}}</p>
+  <p>Information: {{trip.info}}</p>
+  <ion-row *ngIf="userId === trip.userId">
+    <ion-col col-6>
+      <button ion-button block
+        (click)="toEditTripPage(trip)">Edit Trip</button>
+    </ion-col>
+    <ion-col col-6>
+      <button ion-button block
+        (click)="deleteTrip(trip.id)">Delete Trip</button>
+    </ion-col>
+  </ion-row>
 </ion-content>

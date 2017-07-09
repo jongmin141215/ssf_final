@@ -12,7 +12,6 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  currentUser: any;
   friend: any;
   friends: any = [];
   private searchForm: FormGroup;
@@ -24,10 +23,6 @@ export class SearchPage {
       searchTerm: ['', Validators.required]
     })
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
-  }
   ionViewWillEnter() {
     if (this.navParams.get("friends")) {
       this.friends = this.navParams.get("friends");
@@ -35,16 +30,24 @@ export class SearchPage {
   }
 
   findFriend() {
-    console.log(this.searchForm.value);
     this.appUsersProvider.search(this.searchForm.value.searchTerm, window.localStorage.getItem("token"))
       .subscribe(
         friend => {
-          console.log('search user', friend);
-          this.searchForm.reset();
-          this.friend = friend;
+          if (this.navParams.get('username') === friend.username) {
+            alert("You cannot add yourself to your friend list")
+            this.searchForm.reset();
+          } else {
+            this.searchForm.reset();
+            this.friend = friend;
+          }
         },
         err => {
-          console.log(err);
+          if (err.statusText == "Not Found") {
+            alert("Username doesn't exist");
+          } else {
+            alert("Something went wrong. Please try again.");
+          }
+          this.searchForm.reset();
         }
       )
   }
@@ -55,19 +58,18 @@ export class SearchPage {
     })
     if (tempFriends.indexOf(JSON.stringify(friend)) === -1) {
       this.friends.push(friend);
+      this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), this.friends, window.localStorage.getItem("token"))
+        .subscribe(
+          res => {
+            alert("Friend successfully added!")
+            this.friend = undefined;
+          }, err => {
+            alert("Something went wrong. Please try again.")
+          }
+        )
+    } else {
+      alert(friend.username + " already exists.")
+      this.friend = undefined;
     }
-    this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), this.friends, window.localStorage.getItem("token"))
-      .subscribe(
-        res => {
-          alert("Friend successfully added!")
-          console.log('res', res);
-          alert(res);
-        }, err => {
-          console.log('err', err)
-        }
-      )
   }
-
-
-
 }

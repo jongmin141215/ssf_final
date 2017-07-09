@@ -1,14 +1,15 @@
 <ion-header>
-  <ion-navbar>
+  <!-- <ion-navbar>
     <ion-title>
       Travel
     </ion-title>
-  </ion-navbar>
+  </ion-navbar> -->
 </ion-header>
 
 <ion-content padding>
+  <h1 id="logo">Travel DatePicker</h1>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <ion-item>
+    <ion-item center>
       <ion-label>Email</ion-label>
       <ion-input
         type="email"
@@ -23,7 +24,8 @@
         formControlName="password"></ion-input>
     </ion-item>
     <button ion-button block
+      id="loginButton"
       [disabled]="!loginForm.valid">Login</button>
   </form>
-  <a ion-button clear (click)="toRegisterPage()" type="button">Sign up</a>
+  <a ion-button id="signUpButton" block (click)="toRegisterPage()" type="button">Sign up</a>
 </ion-content>
