@@ -49,7 +49,13 @@ export class SearchPage {
       )
   }
   addFriend(friend) {
-    this.friends.push(friend);
+    let tempFriends = [];
+    this.friends.forEach( el => {
+      tempFriends.push(JSON.stringify(el))
+    })
+    if (tempFriends.indexOf(JSON.stringify(friend)) === -1) {
+      this.friends.push(friend);
+    }
     this.appUsersProvider.addFriend(window.localStorage.getItem("userId"), this.friends, window.localStorage.getItem("token"))
       .subscribe(
         res => {
