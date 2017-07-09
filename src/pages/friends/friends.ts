@@ -17,28 +17,19 @@ export class FriendsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FriendsPage');
     this.fetchFriends();
-    console.log("this.friends",this.friends)
-
   }
   ionViewWillEnter() {
-    console.log("ion view will enter")
     this.fetchFriends();
-    console.log("this.friends",this.friends)
-
-    console.log('this.fetchFriends() called?')
   }
 
   fetchFriends() {
     this.appUsersProvider.fetchFriends(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
       .subscribe(
         res => {
-          console.log('friends', res);
           this.friends = res.friends
-          // console.log(this.friends[0].firstName)
         }, err => {
-          console.log('err', err);
+          alert("Something went wrong. Please try again.");
         }
       )
   }

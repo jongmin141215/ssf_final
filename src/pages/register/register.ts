@@ -24,22 +24,16 @@ export class RegisterPage {
       password: ['', Validators.required]
     })
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
-  }
   register() {
-    console.log(this.signupForm.value)
     this.appUsersProvider.register(this.signupForm.value)
       .subscribe(
         user => {
           window.localStorage.setItem("userId", user.id);
           window.localStorage.setItem("token", user.token);
           this.navCtrl.setRoot(TabsPage);
-          console.log(user);
         },
         err => {
-          console.log(err);
+          alert("There was a problem registering user. Please try again");
         }
       )
   }

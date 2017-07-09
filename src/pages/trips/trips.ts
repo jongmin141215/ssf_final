@@ -17,43 +17,26 @@ export class TripsPage {
               public navParams: NavParams,
               private tripsProvider: TripsProvider) {
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TripsPage');
-    this.tripsProvider.getTrips(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
-      .subscribe(
-        trips => {
-          console.log('trips', trips);
-          this.trips = trips;
-        }, err => {
-          console.log(err);
-        }
-      )
+    this.fetchTrips(window.localStorage.getItem("userId"))
   }
   ionViewWillEnter() {
     this.mode = this.navParams.get("mode");
     if (this.mode === "Me") {
-      this.tripsProvider.getTrips(window.localStorage.getItem("userId"), window.localStorage.getItem("token"))
-        .subscribe(
-          trips => {
-            console.log('my trips', trips);
-            this.trips = trips;
-          }, err => {
-            console.log(err);
-          }
-        )
+      this.fetchTrips(window.localStorage.getItem("userId"))
     } else if (this.mode === "Friend") {
-      this.tripsProvider.getTrips(this.navParams.get("friendId"), window.localStorage.getItem("token"))
-        .subscribe(
-          trips => {
-            console.log('friend trips', trips);
-            this.trips = trips;
-          }, err => {
-            console.log(err);
-          }
-        )
+      this.fetchTrips(this.navParams.get("friendId"))
     }
-
+  }
+  fetchTrips(id) {
+    this.tripsProvider.getTrips(id, window.localStorage.getItem("token"))
+      .subscribe(
+        trips => {
+          this.trips = trips;
+        }, err => {
+          alert("Something went wrong. Please try again.");
+        }
+      )
   }
   toNewTripPage() {
     this.navCtrl.push(NewTripPage, {form: "New"});

@@ -22,25 +22,18 @@ export class HomePage {
   }
 
   login() {
-    console.log(this.loginForm.value)
-    if (!this.loginForm.valid) {
-      alert("Please enter a valid email and password");
-    }
-    console.log('loginFormValue', this.loginForm.value);
     this.appUsersProvider.login(this.loginForm.value)
       .subscribe(
         user => {
           window.localStorage.setItem("userId", user.userId);
           window.localStorage.setItem("token", user.id);
-          console.log('user', user);
           this.navCtrl.push(TabsPage);
         }, err => {
-          console.log('err', err);
+          alert("Invalid email or password");
         }
       )
   }
   toRegisterPage() {
-    console.log('to register page')
     this.navCtrl.push(RegisterPage);
   }
 

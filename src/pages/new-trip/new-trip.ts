@@ -20,12 +20,6 @@ export class NewTripPage {
   minStartDate = this.year + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
   minEndDate: any;
   maxEndDate = this.year + 1 + "-" + this.addZero(this.month) + "-" + this.addZero(this.date);
-  addZero(date) {
-    if (date < 10) {
-      return "0" + date
-    }
-    return date;
-  }
   newTripForm: FormGroup;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -38,14 +32,9 @@ export class NewTripPage {
       info: ['']
     })
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewTripPage');
-  }
   ionViewWillEnter() {
     this.trip = this.navParams.get('trip');
     this.form = this.navParams.get('form')
-    console.log("THIS TRIP!!!", this.trip);
     if (this.form === 'Edit') {
       this.newTripForm = this.formBuilder.group({
         location: [this.trip.location, Validators.required],
@@ -58,29 +47,32 @@ export class NewTripPage {
   createTrip() {
     let tripDataWithUserId: any = this.newTripForm.value;
     tripDataWithUserId["userId"] = window.localStorage.getItem("userId");
-    console.log(tripDataWithUserId);
     if (this.form === 'Edit') {
       tripDataWithUserId["tripId"] = this.trip.id
       this.tripsProvider.updateTrip(tripDataWithUserId, window.localStorage.getItem("token"))
       .subscribe(
         trip => {
-          console.log('edit trip', trip);
           this.navCtrl.setRoot(TripsPage);
         }, err => {
-          console.log(err);
+          alert('Something went wrong. Please try again.');
         }
       )
     } else {
       this.tripsProvider.createTrip(tripDataWithUserId, window.localStorage.getItem("token"))
         .subscribe(
           trip => {
-            console.log('new trip', trip);
             this.navCtrl.setRoot(TripsPage, { mode: "Me"});
           }, err => {
-            console.log(err);
+            alert('Something went wrong. Please try again.');
           }
         )
     }
+  }
+  addZero(date) {
+    if (date < 10) {
+      return "0" + date
+    }
+    return date;
   }
 
 }
