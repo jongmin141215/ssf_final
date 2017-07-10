@@ -52,7 +52,7 @@ export class NewTripPage {
       this.tripsProvider.updateTrip(tripDataWithUserId, window.localStorage.getItem("token"))
       .subscribe(
         trip => {
-          this.navCtrl.setRoot(TripsPage);
+          this.navCtrl.setRoot(TripsPage, {mode: "Me"});
         }, err => {
           alert('Something went wrong. Please try again.');
         }

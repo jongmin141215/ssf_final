@@ -44,8 +44,10 @@ export class SearchPage {
         err => {
           if (err.statusText == "Not Found") {
             alert("Username doesn't exist");
+            this.friend = undefined;
           } else {
             alert("Something went wrong. Please try again.");
+            this.friend = undefined;
           }
           this.searchForm.reset();
         }

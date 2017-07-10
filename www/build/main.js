@@ -45534,7 +45534,7 @@ var NewTripPage = (function () {
             tripDataWithUserId["tripId"] = this.trip.id;
             this.tripsProvider.updateTrip(tripDataWithUserId, window.localStorage.getItem("token"))
                 .subscribe(function (trip) {
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__trips_trips__["a" /* TripsPage */]);
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__trips_trips__["a" /* TripsPage */], { mode: "Me" });
             }, function (err) {
                 alert('Something went wrong. Please try again.');
             });
@@ -45561,12 +45561,10 @@ NewTripPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-new-trip',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n    <ion-title>{{form}} Trip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <form [formGroup]="newTripForm" (ngSubmit)="createTrip()">\n    <ion-item>\n      <ion-label>Location</ion-label>\n      <ion-input type="text"\n        formControlName="location"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Start date</ion-label>\n      <ion-input type="date"\n        [min]="minStartDate"\n        formControlName="startDate"\n        [(ngModel)]="minEndDate"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>End date</ion-label>\n      <ion-input type="date"\n        [min]="minEndDate"\n        [max]="maxEndDate"\n        formControlName="endDate"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Info</ion-label>\n      <ion-textarea\n        formControlName="info"></ion-textarea>\n    </ion-item>\n    <button ion-button block [disabled]="newTripForm.invalid">{{form}} Trip</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/new-trip/new-trip.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_trips_trips__["a" /* TripsProvider */]) === "function" && _d || Object])
 ], NewTripPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=new-trip.js.map
 
 /***/ }),
@@ -58568,9 +58566,11 @@ var SearchPage = (function () {
         }, function (err) {
             if (err.statusText == "Not Found") {
                 alert("Username doesn't exist");
+                _this.friend = undefined;
             }
             else {
                 alert("Something went wrong. Please try again.");
+                _this.friend = undefined;
             }
             _this.searchForm.reset();
         });
@@ -58603,12 +58603,10 @@ SearchPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-search',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/search/search.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Search</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="searchForm" (ngSubmit)="findFriend()">\n    <ion-searchbar placeholder="Search friends"\n      formControlName="searchTerm"></ion-searchbar>\n    <button ion-button [disabled]="searchForm.invalid" text-center block>Search</button>\n  </form>\n\n  <div *ngIf="friend">\n    <button  ion-button (click)="addFriend(friend)" outline block>\n      Add {{friend.username}}\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/search/search.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_app_users_app_users__["a" /* AppUsersProvider */]) === "function" && _d || Object])
 ], SearchPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=search.js.map
 
 /***/ }),
@@ -58811,7 +58809,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/home/home.html"*/'<ion-header>\n</ion-header>\n\n<ion-content padding>\n  <h1 id="logo">Travel DatePicker</h1>\n  <form [formGroup]="loginForm" (ngSubmit)="login()">\n    <ion-item center>\n      <ion-label>Email</ion-label>\n      <ion-input\n        type="email"\n        placeholder="john@travel.com"\n        formControlName="email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input\n        type="password"\n        placeholder="********"\n        formControlName="password"></ion-input>\n    </ion-item>\n    <button ion-button block\n      id="loginButton"\n      [disabled]="!loginForm.valid">Login</button>\n  </form>\n  <a ion-button id="signUpButton" block (click)="toRegisterPage()" type="button">Sign up</a>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/kimjongmin/SSF/final/src/pages/home/home.html"*/'<ion-header>\n</ion-header>\n\n<ion-content padding>\n  <h1 id="logo">Travel Together</h1>\n  <form [formGroup]="loginForm" (ngSubmit)="login()">\n    <ion-item center>\n      <ion-label>Email</ion-label>\n      <ion-input\n        type="email"\n        placeholder="john@travel.com"\n        formControlName="email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input\n        type="password"\n        placeholder="********"\n        formControlName="password"></ion-input>\n    </ion-item>\n    <button ion-button block\n      id="loginButton"\n      [disabled]="!loginForm.valid">Login</button>\n  </form>\n  <a ion-button id="signUpButton" block (click)="toRegisterPage()" type="button">Sign up</a>\n</ion-content>\n'/*ion-inline-end:"/Users/kimjongmin/SSF/final/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormBuilder */],
